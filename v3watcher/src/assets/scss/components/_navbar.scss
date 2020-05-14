@@ -10,7 +10,7 @@
     }
   }
   &-button {
-    @apply inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white;
+    @apply inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white ml-4;
     &:hover {
       @apply border-transparent text-teal-500 bg-white;
     }
