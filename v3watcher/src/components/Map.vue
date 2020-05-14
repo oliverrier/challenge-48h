@@ -1,36 +1,43 @@
 
 <template>
-  <div ref="map" id="map">
-    <img :src="link">
-    <div class="md:px-32 py-8 w-full">
-      <div class="shadow overflow-hidden rounded border-b border-gray-200">
-        <table class="min-w-full bg-white">
-          <thead class="bg-gray-800 text-white">
-            <tr>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">nom</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-700">
-              <tr>
-              <td class="w-1/3 text-left py-3 px-4">{{station.name}}</td>
-              <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
-              <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
-              <td class="w-1/3 text-left py-3 px-4">
-                <i
-                  @click="toggleFavorite(station)"
-                  class="fa-star"
-                  :class="isFavorite(station) ? 'fas' : 'far'"
-                ></i>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div ref="map" id="map">
+        <div class="flex items-stretch h-24">
+            <div class="flex-1 px-4 py-2 m-2">
+                <img :src="link">
+            </div>
+            <div class="flex-1 text-center px-4 py-2 m-2">
+                <div class="md:px-32 py-8 w-full">
+                    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                        <table class="min-w-full bg-white">
+                            <thead class="bg-gray-800 text-white">
+                                <tr>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">nom</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr>
+                                    <td class="w-1/3 text-left py-3 px-4">{{station.name}}</td>
+                                    <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
+                                    <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
+                                    <td class="w-1/3 text-left py-3 px-4">
+                                        <i
+                                            @click="toggleFavorite(station)"
+                                            class="fa-star"
+                                            :class="isFavorite(station) ? 'fas' : 'far'"
+                                        ></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+  
 
 </template>
 
