@@ -17,7 +17,7 @@
               <td @click="checkStation(station)">{{station.name}}</td>
               <td @click="checkStation(station)">{{station.bike_count}}</td>
               <td @click="checkStation(station)">{{station.electric_bike_count}}</td>
-              <td @click="checkStation(station)">
+              <td>
                 <button
                   class="favorite-list-delete-button"
                   @click="deleteFavorite(station)"
