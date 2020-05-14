@@ -1,6 +1,6 @@
 <template>
-  <div>
-    
+  <div id="map">
+    pute
   </div>
 </template>
 
@@ -10,4 +10,9 @@ export default {
 </script>
 
 <style>
+  #map {
+    background-color: aqua;
+    height: 500px;
+    width: 100%;
+  }
 </style>
