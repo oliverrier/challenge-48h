@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar />
-    <Map />
+    <div class="pt-32 flex w-full justify-center">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -9,8 +11,13 @@
 export default {
   name: 'App',
   components: {
-    Map: () => import('@/components/Map.vue'),
     Navbar: () => import('@/components/Navbar.vue'),
   }
 }
 </script>
+
+<style lang="scss">
+  html, body {
+  @apply w-full h-full;
+  }
+</style>

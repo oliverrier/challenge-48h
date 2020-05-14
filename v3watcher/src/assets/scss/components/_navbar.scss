@@ -1,5 +1,5 @@
 .navbar {
-  @apply flex items-center justify-between flex-wrap bg-teal-500 fixed w-full;
+  @apply flex items-center justify-between flex-wrap bg-teal-500 fixed w-full py-1;
   &-div-logo {
     @apply flex items-center flex-shrink-0 text-white mr-6 pl-6;
   }
