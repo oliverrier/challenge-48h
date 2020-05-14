@@ -1,34 +1,32 @@
+
 <template>
-  <div>
-    <div id="map"></div>
+  <div ref="map" id="map">
+    <img :src="link">
   </div>
 </template>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg&callback=initMap" async defer></script>
 <script>
 export default {
   data: () => ({
-    map: null,
+    latitude: 44.8380300,
+    longitude: -0.5843700,
+    zoom: 16,
+    label: "M"
+
   }),
-  methods: {
-    initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-      });
+  computed: {
+    link: function(){
+      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=${this.zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${this.label}%7C${this.latitude},${this.longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
     }
   }
-
+  
 }
 </script>
 
 
 <style>
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        background-color: aqua;
-        width: 100%;
-        height: 100%;
-      }
+  #map {
+    height: calc(100vh - 128px);
+    width: 100vw;
+  }
 </style>
