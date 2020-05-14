@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logoV3.png">
+    <Navbar />
     <Map />
   </div>
 </template>
@@ -10,7 +10,8 @@
 export default {
   name: 'App',
   components: {
-    Map: () => import('@/components/Map'),
+    Map: () => import('@/components/Map.vue'),
+    Navbar: () => import('@/components/Navbar.vue'),
   }
 }
 </script>
