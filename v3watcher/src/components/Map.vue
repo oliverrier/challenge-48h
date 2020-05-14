@@ -7,18 +7,18 @@
 
 <script>
 export default {
-  data: () => ({
-    latitude: this.$store.state.stationSelect.latitude,
-    longitude: this.$store.state.stationSelect.longitude,
-    zoom: 16,
-    label: this.$store.state.stationSelect.label
-
-  }),
   computed: {
     link: function(){
-      let firstLetter = this.label.toUpperCase().slice(0,1);
-      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=${this.zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${firstLetter}%7C${this.latitude},${this.longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
-    }
+      let latitude = this.station.latitude;
+      let longitude = this.station.longitude;
+      const zoom = 16;
+      let label = this.station.name;
+      let firstLetter = label.toUpperCase().slice(0,1);
+      return `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${firstLetter}%7C${latitude},${longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
+    },
+  station: function(){
+    return this.$store.state.stationSelect
+  }
   }
   
 }
