@@ -13,7 +13,9 @@
       <router-link to="/map" class="navbar-button" >Map</router-link>
       <router-link to="/favoriteList" class="navbar-button" >FavoriteList</router-link>
     </div>
+
   </nav>
+  
 </template>
 
 <script>
@@ -26,6 +28,7 @@ export default {
   created() {
     this.handleResize()
     window.addEventListener('resize', this.handleResize)
+    this.$store.commit("updateStations");
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
@@ -34,6 +37,11 @@ export default {
     handleResize() {
       if (window.innerWidth >= 1024) this.isExpanded = true;
       else this.isExpanded = false
+    }
+  },
+  computed: {
+    stationList() {
+      return this.$store.state.stationList;
     }
   }
 }
