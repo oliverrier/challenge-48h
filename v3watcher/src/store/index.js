@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersist from 'vuex-persist';
 
 Vue.use(Vuex)
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 export default new Vuex.Store({
   state: {
@@ -22,6 +24,20 @@ export default new Vuex.Store({
     listeStations: null,
 
 >>>>>>> Stashed changes
+=======
+
+const vuexLocalStorage = new VuexPersist({
+  key: 'vuex', // The key to store the state on in the storage provider.
+  storage: window.localStorage,
+  reducer: state => ({
+    monStateQueJeVeuxRendrePersistant: state.monStateQueJeVeuxRendrePersistant,
+  })
+})
+
+export default new Vuex.Store({
+  state: {
+    monStateQueJeVeuxRendrePersistant: null,
+>>>>>>> master
   },
   mutations: {
     async updateStations(state) {
@@ -32,6 +48,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   }
 })
@@ -40,3 +57,8 @@ export default new Vuex.Store({
   plugins: [vuexLocalStorage.plugin]
 })
 >>>>>>> Stashed changes
+=======
+  },
+  plugins: [vuexLocalStorage.plugin]
+})
+>>>>>>> master
