@@ -24,7 +24,10 @@
             </tr>
           </thead>
           <tbody class="text-gray-700" v-for="(station) in data.data" :key="station.id">
-            <tr v-show="station.is_online" class="cursor-pointer table-highlighting">
+            <tr
+              v-show="station.is_online && stationIsVisible(station.name)"
+              class="cursor-pointer table-highlighting"
+            >
               <td class="w-1/3 text-left py-3 px-4" @click="checkStation(station)">{{station.name}}</td>
               <td
                 class="w-1/3 text-left py-3 px-4"
@@ -135,6 +138,20 @@ export default {
     },
     searchStation() {
       console.log(this.stationSearch);
+    },
+    stationIsVisible(stationName) {
+      let resultat = false;
+      if (this.stationSearch == "") {
+        resultat = true;
+      } else {
+        if (
+          stationName.toLowerCase().includes(this.stationSearch.toLowerCase())
+        ) {
+          resultat = true;
+        }
+      }
+      console.log(stationName);
+      return resultat;
     }
   }
 };
