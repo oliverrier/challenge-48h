@@ -20,6 +20,6 @@ export default new Router({
       path: "/favorite-list",
       name: "favorite-list",
       component: () => import("./components/FavoriteList"),
-    },
+    }
   ]
-});
+})

@@ -2,6 +2,7 @@
   <div>
     <h2> Favorite List </h2>
       {{favoriteList}}
+      <p>Saucisse</p>
   </div>
 </template>
 

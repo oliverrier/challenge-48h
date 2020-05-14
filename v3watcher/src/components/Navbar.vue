@@ -11,7 +11,7 @@
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto p-6 ml-auto" v-if="isExpanded">
       <router-link to="/map" class="navbar-button" >Map</router-link>
-      <router-link to="/favoriteList" class="navbar-button" >FavoriteList</router-link>
+      <router-link to="/favorite-list" class="navbar-button" >FavoriteList</router-link>
     </div>
 
   </nav>
