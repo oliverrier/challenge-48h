@@ -25,7 +25,7 @@
         </table>
       </div>
     </div>
-    <button class="bg-red-600 text-white" @click="deleteAllFavorite>SUPPRIMER TOUS LES FAVORIS</button>
+    <button class="bg-red-600 text-white" @click="deleteAllFavorite">SUPPRIMER TOUS LES FAVORIS</button>
   </div>
 </template>
 
@@ -40,7 +40,7 @@ export default {
     deleteFavorite: function(station) {
       this.$store.commit("deleteFavorite", station);
     },
-    deleteAllFavorite: function(station) {
+    deleteAllFavorite: function() {
       this.$store.commit("deleteAllFavorite");
     }
   }

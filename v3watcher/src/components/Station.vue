@@ -18,7 +18,7 @@
               <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
                 <i
-                  @click="addToFavorite(station)"
+                  @click="toggleFavorite(station)"
                   class="fa-star"
                   :class="isFavorite(station) ? 'fas' : 'far'"
                 ></i>
@@ -49,8 +49,13 @@ export default {
     }
   },
   methods: {
-    addToFavorite: function(station) {
-      this.$store.commit("addFavorite", station);
+    toggleFavorite: function(station) {
+      if(this.isFavorite(station)){
+      this.$store.commit("deleteFavorite", station);
+
+      } else {
+this.$store.commit("addFavorite", station);
+      }
     },
     isFavorite: function(station) {
       let resultat = false;
