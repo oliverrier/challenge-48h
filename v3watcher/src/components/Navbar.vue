@@ -6,37 +6,39 @@
     </div>
     <div class="block lg:hidden" @click="isExpanded=!isExpanded">
       <button class="navbar-menu-button">
-        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
       </button>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto p-6 ml-auto" v-if="isExpanded">
-      <router-link to="/map" class="navbar-button" >Map</router-link>
-      <router-link to="/favorite-list" class="navbar-button" >FavoriteList</router-link>
+    <div
+      class="w-full block flex-grow lg:flex lg:items-center lg:w-auto p-6 ml-auto"
+      v-if="isExpanded"
+    >
+      <router-link to="/map" class="navbar-button">Map</router-link>
+      <router-link to="/favorite-list" class="navbar-button">FavoriteList</router-link>
     </div>
-
   </nav>
-  
 </template>
 
 <script>
 export default {
-  components: {
-  },
+  components: {},
   data: () => ({
-    isExpanded: false,
+    isExpanded: false
   }),
   created() {
-    this.handleResize()
-    window.addEventListener('resize', this.handleResize)
-    this.$store.commit("updateStations");
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
   },
   destroyed() {
-    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener("resize", this.handleResize);
   },
   methods: {
     handleResize() {
       if (window.innerWidth >= 1024) this.isExpanded = true;
-      else this.isExpanded = false
+      else this.isExpanded = false;
     }
   },
   computed: {
@@ -44,9 +46,9 @@ export default {
       return this.$store.state.stationList;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '~Style/components/navbar';
+@import "~Style/components/navbar";
 </style>
