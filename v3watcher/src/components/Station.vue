@@ -17,7 +17,11 @@
               <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
-                <i @click="addToFavorite(station)" class="far fa-star"></i>
+                <i
+                  @click="addToFavorite(station)"
+                  class="fa-star"
+                  :class="isFavorite(station) ? 'fas' : 'far'"
+                ></i>
               </td>
             </tr>
           </tbody>
@@ -39,11 +43,23 @@ export default {
   computed: {
     stationList() {
       return this.$store.state.stationList;
+    },
+    favoriteList() {
+      return this.$store.state.favoriteList;
     }
   },
   methods: {
     addToFavorite: function(station) {
       this.$store.commit("addFavorite", station);
+    },
+    isFavorite: function(station) {
+      let resultat = false;
+      this.favoriteList.forEach(element => {
+        if (element.id == station.id) {
+          resultat = true;
+        }
+      });
+      return resultat;
     }
   }
 };
