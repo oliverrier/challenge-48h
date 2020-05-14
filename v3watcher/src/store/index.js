@@ -16,12 +16,12 @@ const vuexLocalStorage = new VuexPersist({
 
 export default new Vuex.Store({
   state: {
-    listeStations: null,
+    stationList: null,
   },
   mutations: {
     async updateStations(state) {
       let dataStations = await axios.get(`https://api.alexandredubois.com/vcub-backend/vcub.php`);
-      state.listeStations = dataStations.data;
+      state.stationList = dataStations.data;
     }
   },
   actions: {

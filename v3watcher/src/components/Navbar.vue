@@ -12,7 +12,12 @@
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto p-6" v-if="isExpanded">
       <router-link to="/map" class="navbar-map-button" >Map</router-link>
     </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto p-6" v-if="isExpanded">
+      <router-link to="/station" class="navbar-map-button">Station</router-link>
+    </div>
+
   </nav>
+  
 </template>
 
 <script>
@@ -25,6 +30,7 @@ export default {
   created() {
     this.handleResize()
     window.addEventListener('resize', this.handleResize)
+    this.$store.commit("updateStations");
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
@@ -33,6 +39,11 @@ export default {
     handleResize() {
       if (window.innerWidth >= 1024) this.isExpanded = true;
       else this.isExpanded = false
+    }
+  },
+  computed: {
+    stationList() {
+      return this.$store.state.stationList;
     }
   }
 }

@@ -16,5 +16,10 @@ export default new Router({
       name: "map",
       component: () => import("./components/Map"),
     },
+    {
+      path: "/station",
+      name: "station",
+      component: () => import("./components/Station"),
+    },
   ]
 });

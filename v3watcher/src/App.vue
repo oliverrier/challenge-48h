@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
-    <Map />
+    <router-view />
   </div>
 </template>
 
@@ -9,7 +9,6 @@
 export default {
   name: 'App',
   components: {
-    Map: () => import('@/components/Map.vue'),
     Navbar: () => import('@/components/Navbar.vue'),
   }
 }
