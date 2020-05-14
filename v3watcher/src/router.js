@@ -16,5 +16,10 @@ export default new Router({
       name: "map",
       component: () => import("./components/Map"),
     },
+    {
+      path: "/favorite-list",
+      name: "favorite-list",
+      component: () => import("./components/FavoriteList"),
+    },
   ]
 });

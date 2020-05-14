@@ -12,7 +12,7 @@ export default {
 <style>
   #map {
     background-color: aqua;
-    height: 500px;
-    width: 100%;
+    height: calc(100vh - 128px);
+    width: 100vw;
   }
 </style>
