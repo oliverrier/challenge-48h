@@ -8,15 +8,16 @@
 <script>
 export default {
   data: () => ({
-    latitude: 44.8380300,
-    longitude: -0.5843700,
+    latitude: this.$store.state.stationSelect.latitude,
+    longitude: this.$store.state.stationSelect.longitude,
     zoom: 16,
-    label: "M"
+    label: this.$store.state.stationSelect.label
 
   }),
   computed: {
     link: function(){
-      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=${this.zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${this.label}%7C${this.latitude},${this.longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
+      var firstLetter = label.toUpperCase().slice(0,1);
+      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=${this.zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${this.firstLetter}%7C${this.latitude},${this.longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
     }
   }
   
