@@ -10,7 +10,7 @@
 export default {
   name: 'App',
   components: {
-    Map: () => { './components/Map.vue' }
+    Map: () => import('@/components/Map'),
   }
 }
 </script>
