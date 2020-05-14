@@ -17,10 +17,10 @@ export default {
 </script>
 
 <style lang="scss">
-html,
-body {
-  @apply w-full h-full;
-};
+  html,
+  body {
+    @apply w-full h-full;
+  };
   #view {
     height: calc(100vh - 128px);
     width: 100vw;
