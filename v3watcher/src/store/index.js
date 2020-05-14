@@ -4,11 +4,6 @@ import VuexPersist from 'vuex-persist';
 
 Vue.use(Vuex)
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-export default new Vuex.Store({
-  state: {
-=======
 const axios = require('axios');
 
 const vuexLocalStorage = new VuexPersist({
@@ -22,22 +17,6 @@ const vuexLocalStorage = new VuexPersist({
 export default new Vuex.Store({
   state: {
     listeStations: null,
-
->>>>>>> Stashed changes
-=======
-
-const vuexLocalStorage = new VuexPersist({
-  key: 'vuex', // The key to store the state on in the storage provider.
-  storage: window.localStorage,
-  reducer: state => ({
-    monStateQueJeVeuxRendrePersistant: state.monStateQueJeVeuxRendrePersistant,
-  })
-})
-
-export default new Vuex.Store({
-  state: {
-    monStateQueJeVeuxRendrePersistant: null,
->>>>>>> master
   },
   mutations: {
     async updateStations(state) {
@@ -48,17 +27,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  }
-})
-=======
   },
   plugins: [vuexLocalStorage.plugin]
 })
->>>>>>> Stashed changes
-=======
-  },
-  plugins: [vuexLocalStorage.plugin]
-})
->>>>>>> master
