@@ -129,6 +129,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~Style/components/navbar";
 @import "~Style/components/table";
 </style>
