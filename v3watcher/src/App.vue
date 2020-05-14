@@ -13,5 +13,6 @@ export default {
     Map: () => import('@/components/Map.vue'),
     Navbar: () => import('@/components/Navbar.vue'),
   }
+
 }
 </script>
