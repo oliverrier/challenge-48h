@@ -1,5 +1,5 @@
 .navbar {
-  @apply flex items-center justify-between flex-wrap bg-teal-500 fixed w-full;
+  @apply flex items-center justify-between flex-wrap bg-teal-500 fixed w-full py-1;
   &-div-logo {
     @apply flex items-center flex-shrink-0 text-white mr-6 pl-6;
   }
@@ -9,8 +9,8 @@
       @apply text-white border-white;
     }
   }
-  &-map-button {
-    @apply inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white ml-auto;
+  &-button {
+    @apply inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white ml-4;
     &:hover {
       @apply border-transparent text-teal-500 bg-white;
     }

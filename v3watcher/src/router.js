@@ -17,9 +17,9 @@ export default new Router({
       component: () => import("./components/Map"),
     },
     {
-      path: "/station",
-      name: "station",
-      component: () => import("./components/Station"),
+      path: "/favorite-list",
+      name: "favorite-list",
+      component: () => import("./components/FavoriteList"),
     },
   ]
 });
