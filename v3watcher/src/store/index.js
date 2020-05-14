@@ -33,7 +33,7 @@ export default new Vuex.Store({
       state.favoriteList = [];
     },
     deleteFavorite(state, val) {
-      const index = state.favoriteList.findIndex(station => station.hello === val.id);
+      const index = state.favoriteList.findIndex(station => station.id === val.id);
       state.favoriteList.splice(index, 1);
     },
     updateStationSelect(state, val) {
