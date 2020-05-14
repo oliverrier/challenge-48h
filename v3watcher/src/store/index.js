@@ -11,6 +11,7 @@ const vuexLocalStorage = new VuexPersist({
   storage: window.localStorage,
   reducer: state => ({
     favoriteList: state.favoriteList,
+    stationSelect: state.stationSelect,
   })
 })
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   state: {
     stationList: null,
     favoriteList: [],
+    stationSelect: null,
   },
   mutations: {
     async updateStations(state) {
@@ -34,6 +36,9 @@ export default new Vuex.Store({
       let index = state.favoriteList.indexOf(val);
       state.favoriteList.splice(index, 1);
     },
+    updateStationSelect(state, val) {
+      state.stationSelect = val;
+    }
   },
   actions: {
   },
