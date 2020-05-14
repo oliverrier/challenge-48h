@@ -17,7 +17,7 @@
       </thead>
     <tbody class="text-gray-700" v-for="(station) in stationList" :key="station.id">
         <tr v-show="station.is_online">
-            <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">{{station.name}}</a></td>
+            <td class="w-1/3 text-left py-3 px-4">{{station.name}}</td>
             <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
             <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
         </tr>
