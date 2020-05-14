@@ -1,0 +1,30 @@
+.favorite-list {
+  @apply flex items-center justify-between flex-wrap bg-teal-500 fixed w-full py-1;
+  &-header {
+    @apply text-5xl text-teal-700 ml-12;
+  }
+  &-th {
+    @apply text-left py-3 px-4 uppercase font-semibold text-sm;
+  }
+  &-tbody {
+    @apply text-gray-700;
+    &:hover {
+      @apply bg-gray-300;
+    }
+  }
+  &-td {
+    @apply w-1/3 text-left py-3 px-4 items-center;
+  }
+  &-delete-button {
+    @apply inline-block text-sm px-4 py-2 leading-none border rounded text-red-700 border-white ml-4;
+    &:hover {
+      @apply border-transparent text-white bg-red-700;
+    }
+    &-all {
+      @apply inline-block text-sm px-4 py-2 leading-none border rounded text-red-700 border-white ml-12 object-right;
+      &:hover {
+        @apply border-transparent text-white bg-red-700;
+      }
+    }
+  }
+}
