@@ -1,35 +1,30 @@
 <template>
   <div>
     <p>Salut</p>
-    <p>Salut</p>
-    <p>Salut</p>
-
 
     <p>Salut</p>
+    <p>salut</p>
     <p>Salut</p>
-
-    <p>Salut</p>
-
-    <p>Salut</p>
-    <table class="table-auto">
-  <thead>
-    <tr>
-      <th class="px-4 py-2">Nom</th>
-      <th class="px-4 py-2">Vélos disponibles</th>
-      <th class="px-4 py-2">Vélos electroniques</th>
-    </tr>
-  </thead>
-  <tbody>
-    <div v-for="(station) in stationList" :key="station.id"> 
-        <tr v-show="station.is_online">
-            <td class="border px-4 py-2">{{station.name}}</td>
-            <td class="border px-4 py-2">{{station.bike_count}}</td>
-            <td class="border px-4 py-2">{{station.electric_bike_count}}</td>
+    <div class="md:px-32 py-8 w-full">
+  <div class="shadow overflow-hidden rounded border-b border-gray-200">
+    <table class="min-w-full bg-white">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">nom</th>
+          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
+          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
         </tr>
-    </div>
-  </tbody>
-</table>
-
+      </thead>
+    <tbody class="text-gray-700" v-for="(station) in stationList" :key="station.id">
+        <tr v-show="station.is_online">
+            <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">{{station.name}}</a></td>
+            <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
+            <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+</div>
   </div>
 </template>
 
@@ -49,5 +44,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~Style/main';
+  @import '~Style/components/navbar';
 </style>
