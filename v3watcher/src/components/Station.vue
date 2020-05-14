@@ -8,7 +8,7 @@
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">nom</th>
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
-              <th>Favoris</th>
+              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
             </tr>
           </thead>
           <tbody class="text-gray-700" v-for="(station) in stationList" :key="station.id">
