@@ -1,17 +1,19 @@
 <template>
   <div>
     <div class="p-2 ml-auto">
-      <label for="rowsPerPage">
-        Stations par page
-      </label>
-      <select class="p-1 rounded border border-gray-300 bg-white mx-4" id="rowsPerPage" v-model="currentPerPage">
-        <option v-for="(opt, index) in perPage" :key="opt" :value="index">
-          {{ opt }}
-        </option>
+      <label for="rowsPerPage">Stations par page</label>
+      <select
+        class="p-1 rounded border border-gray-300 bg-white mx-4"
+        id="rowsPerPage"
+        v-model="currentPerPage"
+      >
+        <option v-for="(opt, index) in perPage" :key="opt" :value="index">{{ opt }}</option>
       </select>
     </div>
     <div class="md:px-32 py-8 w-full">
       <div class="shadow overflow-hidden rounded border-b border-gray-200">
+        <input v-model="stationSearch" placeholder="Recherche par nom" @input="searchStation" />
+
         <table class="min-w-full bg-white">
           <thead class="bg-gray-800 text-white">
             <tr>
@@ -22,14 +24,16 @@
             </tr>
           </thead>
           <tbody class="text-gray-700" v-for="(station) in data.data" :key="station.id">
-            <tr
-              v-show="station.is_online"
-              class="cursor-pointer table-highlighting"
-              @click="checkStation(station)"
-            >
-              <td class="w-1/3 text-left py-3 px-4">{{station.name}}</td>
-              <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
-              <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
+            <tr v-show="station.is_online" class="cursor-pointer table-highlighting">
+              <td class="w-1/3 text-left py-3 px-4" @click="checkStation(station)">{{station.name}}</td>
+              <td
+                class="w-1/3 text-left py-3 px-4"
+                @click="checkStation(station)"
+              >{{station.bike_count}}</td>
+              <td
+                class="w-1/3 text-left py-3 px-4"
+                @click="checkStation(station)"
+              >{{station.electric_bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
                 <i
                   @click="toggleFavorite(station)"
@@ -43,44 +47,45 @@
       </div>
     </div>
     <div class="flex items-center my-2">
-			<div class="ml-auto">
-				<label for="currentPage">
-					Page
-				</label>
-				<button
-					:class="['mr-2 focus:outline-none', currentPage == 1 ? 'text-gray-400' : '']"
-					@click="currentPage = currentPage > 1 ? currentPage - 1 : currentPage"
-					:disabled="currentPage == 1"
-				>
-					<i class="fas fa-chevron-left"></i>
-				</button>
-				<input type="text" id="currentPage" class="p-1 border rounded border-gray-300 focus:outline-none focus:shadow w-12 text-right" v-model="currentPage">
-				<button
-					:class="['ml-2 focus:outline-none', currentPage == data.totalPages ? 'text-gray-400' : '']"
-					@click="currentPage = currentPage < data.totalPages ? currentPage + 1 : currentPage"
-					:disabled="currentPage == data.totalPages"
-				>
-					<i class="fas fa-chevron-right"></i>
-				</button>
-				<span class="mx-6">
-					Pages totales : {{ data.totalPages }}
-				</span>
-			</div>
-		</div>
+      <div class="ml-auto">
+        <label for="currentPage">Page</label>
+        <button
+          :class="['mr-2 focus:outline-none', currentPage == 1 ? 'text-gray-400' : '']"
+          @click="currentPage = currentPage > 1 ? currentPage - 1 : currentPage"
+          :disabled="currentPage == 1"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <input
+          type="text"
+          id="currentPage"
+          class="p-1 border rounded border-gray-300 focus:outline-none focus:shadow w-12 text-right"
+          v-model="currentPage"
+        />
+        <button
+          :class="['ml-2 focus:outline-none', currentPage == data.totalPages ? 'text-gray-400' : '']"
+          @click="currentPage = currentPage < data.totalPages ? currentPage + 1 : currentPage"
+          :disabled="currentPage == data.totalPages"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <span class="mx-6">Pages totales : {{ data.totalPages }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-
-import { chunk } from 'lodash'
+import { chunk } from "lodash";
 
 export default {
   components: {},
   data: () => ({
     selected: [],
-		currentPerPage: 0,
+    currentPerPage: 0,
     currentPage: 1,
-    perPage: [5, 10, 15]
+    perPage: [5, 10, 15],
+    stationSearch: ""
   }),
   created() {
     this.$store.commit("updateStations");
@@ -93,12 +98,16 @@ export default {
       return this.$store.state.favoriteList;
     },
     data() {
-      const chunkedData = chunk(this.stationList, this.perPage[this.getIndexForArray(this.currentPerPage, this.perPage)])
-			return {
-				data: chunkedData[this.getIndexForArray(this.currentPage - 1, chunkedData)],
-				totalPages: chunkedData.length
-			}
-		},
+      const chunkedData = chunk(
+        this.stationList,
+        this.perPage[this.getIndexForArray(this.currentPerPage, this.perPage)]
+      );
+      return {
+        data:
+          chunkedData[this.getIndexForArray(this.currentPage - 1, chunkedData)],
+        totalPages: chunkedData.length
+      };
+    }
   },
   methods: {
     toggleFavorite: function(station) {
@@ -122,8 +131,11 @@ export default {
       this.$router.push("/map");
     },
     getIndexForArray(index, array) {
-			return index >= 0 && index < array.length ? index : 0
-		},
+      return index >= 0 && index < array.length ? index : 0;
+    },
+    searchStation() {
+      console.log(this.stationSearch);
+    }
   }
 };
 </script>

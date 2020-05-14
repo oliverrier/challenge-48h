@@ -25,7 +25,8 @@
 export default {
   components: {},
   data: () => ({
-    isExpanded: false
+    isExpanded: false,
+    stationSearch: ""
   }),
   created() {
     this.handleResize();
