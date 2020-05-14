@@ -16,7 +16,6 @@
       class="w-full block flex-grow lg:flex lg:items-center lg:w-auto p-6 ml-auto"
       v-if="isExpanded"
     >
-      <router-link to="/map" class="navbar-button">Carte</router-link>
       <router-link to="/favorite-list" class="navbar-button">Liste de Favori</router-link>
     </div>
   </nav>

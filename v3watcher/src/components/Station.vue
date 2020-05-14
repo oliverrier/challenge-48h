@@ -12,14 +12,16 @@
             </tr>
           </thead>
           <tbody class="text-gray-700" v-for="(station) in stationList" :key="station.id">
-            <tr
-              v-show="station.is_online"
-              class="cursor-pointer table-highlighting"
-              @click="checkStation(station)"
-            >
-              <td class="w-1/3 text-left py-3 px-4">{{station.name}}</td>
-              <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
-              <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
+            <tr v-show="station.is_online" class="cursor-pointer table-highlighting">
+              <td class="w-1/3 text-left py-3 px-4" @click="checkStation(station)">{{station.name}}</td>
+              <td
+                class="w-1/3 text-left py-3 px-4"
+                @click="checkStation(station)"
+              >{{station.bike_count}}</td>
+              <td
+                class="w-1/3 text-left py-3 px-4"
+                @click="checkStation(station)"
+              >{{station.electric_bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
                 <i
                   @click="toggleFavorite(station)"
@@ -78,6 +80,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~Style/components/navbar";
 @import "~Style/components/table";
 </style>
