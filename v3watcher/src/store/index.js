@@ -31,9 +31,9 @@ export default new Vuex.Store({
       state.favoriteList = [];
     },
     deleteFavorite(state, val) {
-      let index = state.cart.indexOf(val);
+      let index = state.favoriteList.indexOf(val);
       state.favoriteList.splice(index, 1);
-    }
+    },
   },
   actions: {
   },

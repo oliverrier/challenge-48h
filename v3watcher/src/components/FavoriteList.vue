@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Favorite List</h2>
+    <h2 class="text-5xl">Favorite List</h2>
     <div class="md:px-32 py-8 w-full">
       <div class="shadow overflow-hidden rounded border-b border-gray-200">
         <table class="min-w-full bg-white">
@@ -18,13 +18,14 @@
               <td class="w-1/3 text-left py-3 px-4">{{station.bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">{{station.electric_bike_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
-                <i @click="addToFavorite(station)" class="far fa-star"></i>
+                <button class="bg-red-600 text-white" @click="deleteFavorite(station)">SUPPRIMER</button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+    <button class="bg-red-600 text-white" @click="deleteAllFavorite">SUPPRIMER TOUS LES FAVORIS</button>
   </div>
 </template>
 
@@ -36,8 +37,11 @@ export default {
     }
   },
   methods: {
-    debug: function() {
-      console.log(this.favoriteList);
+    deleteFavorite: function(station) {
+      this.$store.commit("deleteFavorite", station);
+    },
+    deleteAllFavorite: function() {
+      this.$store.commit("deleteAllFavorite");
     }
   }
 };
