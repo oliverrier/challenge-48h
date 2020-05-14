@@ -16,8 +16,8 @@ export default {
   }),
   computed: {
     link: function(){
-      var firstLetter = label.toUpperCase().slice(0,1);
-      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=${this.zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${this.firstLetter}%7C${this.latitude},${this.longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
+      let firstLetter = this.label.toUpperCase().slice(0,1);
+      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=${this.zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${firstLetter}%7C${this.latitude},${this.longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
     }
   }
   
