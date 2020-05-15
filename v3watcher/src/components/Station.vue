@@ -11,22 +11,24 @@
       </select>
     </div>
 
-    <div class="md:px-32 py-8 w-full">
-      <input
-        v-model="stationSearch"
-        placeholder="Recherche par nom"
-        @input="searchStation"
-        class="my-2 border-black"
-      />
+    <div class=" container mx-left pl-32 pr-64">
+        <input
+          v-model="stationSearch"
+          placeholder="Recherche par nom"
+          @input="searchStation"
+          class=" shadow-md border-solid border border-black rounded w-2/3 py-2 px-8 pr-64 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+    <div class="md:px-32 py-4 w-full">
       <div class="shadow overflow-hidden rounded border-b border-gray-200">
         <table class="min-w-full bg-white">
           <thead class="bg-gray-800 text-white">
             <tr>
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">nom</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Places disponibles</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
+              <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
+              <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
+              <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Places disponibles</th>
+              <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
             </tr>
           </thead>
           <tbody
@@ -39,8 +41,8 @@
               v-show="stationIsVisible(station.name)"
             >
               <td
-                class="w-1/3 text-left py-3 px-4"
-                :class="station.is_online ? '' : 'text-red-500'"
+                class="w-1/7 text-left py-3 px-4 border-solid border-b border-l border-gray-500"
+                :class="station.is_online ? '' : 'text-red-900'"
                 @click="station.is_online ? checkStation(station) : null"
               >
                 {{station.is_online ?
@@ -49,18 +51,18 @@
                 }}
               </td>
               <td
-                class="w-1/3 text-left py-3 px-4"
+                class="w-1/4 text-center py-3 px-4 border-solid border-b border-gray-500"
                 @click="station.is_online ? checkStation(station) : null"
               >{{station.bike_count}}</td>
               <td
-                class="w-1/3 text-left py-3 px-4"
+                class="w-1/4 text-center py-3 px-4 border-solid border-b border-gray-500"
                 @click="station.is_online ? checkStation(station) : null"
               >{{station.electric_bike_count}}</td>
               <td
-                class="w-1/3 text-left py-3 px-4"
+                class="w-1/4 text-center py-3 px-4 border-solid border-b border-gray-500"
                 @click="station.is_online ? checkStation(station) : null"
               >{{station.slot_count}}</td>
-              <td class="w-1/3 text-left py-3 px-4">
+              <td class="w-1/7 text-center py-3 px-4 border-solid border-b border-r border-gray-500">
                 <i
                   @click="toggleFavorite(station)"
                   class="fa-star"
