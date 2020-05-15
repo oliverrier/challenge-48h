@@ -58,7 +58,7 @@
               >{{station.electric_bike_count}}</td>
               <td
                 class="w-1/3 text-left py-3 px-4"
-                @click="checkStation(station)"
+                @click="station.is_online ? checkStation(station) : null"
               >{{station.slot_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
                 <i
