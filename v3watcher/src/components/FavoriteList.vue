@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="favorite-list-header">Liste de Favori</h2>
-    <div class="inline-block ml-auto justify-end">
+    <div class="py-4 mx-left pl-32 pr-64">
       <label for="rowsPerPage">Stations par page</label>
       <select
         class="p-1 rounded border border-gray-300 bg-white mx-4"

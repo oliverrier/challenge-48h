@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="p-2 ml-auto">
+    <div class="py-4 mx-left pl-32 pr-64">
       <label for="rowsPerPage">Stations par page</label>
       <select
         class="p-1 rounded border border-gray-300 bg-white mx-4"
@@ -16,7 +16,7 @@
           v-model="stationSearch"
           placeholder="Recherche par nom"
           @input="searchStation"
-          class=" shadow-md border-solid border border-black rounded w-2/3 py-2 px-8 pr-64 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          class=" shadow-md border-solid border border-black rounded w-2/3 py-2 px-4 pr-64 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
     <div class="md:px-32 py-4 w-full">
@@ -75,8 +75,8 @@
       </div>
     </div>
     <div class="flex items-center my-2">
-      <div class="ml-auto">
-        <label for="currentPage">Page</label>
+      <div class="ml-auto mr-32">
+        <label for="currentPage" class="mr-2">Page</label>
         <button
           :class="['mr-2 focus:outline-none', currentPage == 1 ? 'text-gray-400' : '']"
           @click="currentPage = currentPage > 1 ? currentPage - 1 : currentPage"
@@ -133,7 +133,7 @@ export default {
       return {
         data:
           chunkedData[this.getIndexForArray(this.currentPage - 1, chunkedData)],
-        totalPages: chunkedData.length
+          totalPages: chunkedData.length
       };
     }
   },
