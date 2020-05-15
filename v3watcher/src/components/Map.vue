@@ -1,12 +1,9 @@
 
 <template>
   <div ref="map" id="map">
-    <div class="flex items-stretch h-24">
-      <div class="flex-1 px-4 py-2 m-2">
-        <img class="w-full" :src="link" />
-      </div>
-      <div class="flex-1 text-center px-4 py-20 m-2">
-        <div class="md:px-32 py-8 w-full">
+        
+
+        <div class="md:px-32 py-2 w-full">
           <div class="shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
               <thead class="bg-gray-800 text-white">
@@ -36,9 +33,8 @@
             </table>
           </div>
         </div>
+        <img class="object-contain h-40 w-full" :src="link" style="height:350px"/>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
