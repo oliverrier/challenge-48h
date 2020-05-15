@@ -19,17 +19,29 @@
               <th class="favorite-list-th">nom</th>
               <th class="favorite-list-th">Vélos disponibles</th>
               <th class="favorite-list-th">Vélos électriques</th>
+              <th class="favorite-list-th">Places disponibles</th>
               <th class="favorite-list-th">Favoris</th>
             </tr>
           </thead>
           <tbody class="favorite-list-tbody" v-for="(station) in data.data" :key="station.id">
-            <tr v-show="station.is_online">
-              <td class="favorite-list-td" @click="checkStation(station)">{{station.name}}</td>
-              <td class="favorite-list-td" @click="checkStation(station)">{{station.bike_count}}</td>
+            <tr
+              :class="station.is_online ? 'cursor-pointer table-highlighting' : 'bg-gray-600 cursor-not-allowed'"
+            >
+              <td class="favorite-list-td"
+              :class="station.is_online ? '' : 'text-red-500'"
+              @click="station.is_online ? checkStation(station) : null">{{station.is_online ?
+               station.name 
+               : station.name + " (Station indisponible)"
+               }}</td>
+              <td class="favorite-list-td" @click="station.is_online ? checkStation(station) : null">{{station.bike_count}}</td>
               <td
                 class="favorite-list-td"
-                @click="checkStation(station)"
+                 @click="station.is_online ? checkStation(station) : null"
               >{{station.electric_bike_count}}</td>
+              <td
+                class="favorite-list-td"
+                @click="station.is_online ? checkStation(station) : null"
+              >{{station.slot_count}}</td>
               <td class="favorite-list-td">
                 <button
                   class="favorite-list-delete-button"
