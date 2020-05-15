@@ -11,3 +11,13 @@ Nous avons donc utilisé:    -VueJs
                             -TailWind CSS
                             -Axios
 Comme api nous avons pris celle-ci: https://api.alexandredubois.com/vcub-backend/vcub.php
+
+
+
+Pour l'installer:
+
+`cd v3watcher`
+
+`npm install`
+`npm run serve`
+`localhost:8080`
