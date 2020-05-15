@@ -49,8 +49,8 @@ export default {
       let longitude = this.station.longitude;
       const zoom = 16;
       let label = this.station.name;
-      let firstLetter = label.toUpperCase().slice(0, 1);
-      return `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&format=png&size=1000x500&markers=color:red%7Clabel:${firstLetter}%7C${latitude},${longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`;
+      let firstLetter = label.toUpperCase().slice(0,1);
+      return `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&format=png&size=640x500&markers=color:red%7Clabel:${firstLetter}%7C${latitude},${longitude}&maptype=roadmap&key=AIzaSyD4sJT9QqmWldPRlgemuuMoUzXLVf81pZg`
     },
     station: function() {
       return this.$store.state.stationSelect;
