@@ -20,6 +20,7 @@
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">nom</th>
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos disponibles</th>
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Vélos électriques</th>
+              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Places disponibles</th>
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
             </tr>
           </thead>
@@ -41,6 +42,10 @@
                 class="w-1/3 text-left py-3 px-4"
                 @click="checkStation(station)"
               >{{station.electric_bike_count}}</td>
+              <td
+                class="w-1/3 text-left py-3 px-4"
+                @click="checkStation(station)"
+              >{{station.slot_count}}</td>
               <td class="w-1/3 text-left py-3 px-4">
                 <i
                   @click="toggleFavorite(station)"
