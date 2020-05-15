@@ -101,6 +101,10 @@ export default {
     }
   },
   methods: {
+    checkStation: function(station) {
+      this.$store.commit("updateStationSelect", station);
+      this.$router.push("/map");
+    },
     deleteFavorite: function(station) {
       this.$store.commit("deleteFavorite", station);
     },
