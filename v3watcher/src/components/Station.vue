@@ -10,10 +10,15 @@
         <option v-for="(opt, index) in perPage" :key="opt" :value="index">{{ opt }}</option>
       </select>
     </div>
-    <div class="md:px-32 py-8 w-full">
-      <div class="shadow overflow-hidden rounded border-b border-gray-200">
-        <input v-model="stationSearch" placeholder="Recherche par nom" @input="searchStation" />
 
+    <div class="md:px-32 py-8 w-full">
+      <input
+        v-model="stationSearch"
+        placeholder="Recherche par nom"
+        @input="searchStation"
+        class="my-2 border-black"
+      />
+      <div class="shadow overflow-hidden rounded border-b border-gray-200">
         <table class="min-w-full bg-white">
           <thead class="bg-gray-800 text-white">
             <tr>
@@ -33,12 +38,16 @@
               :class="station.is_online ? 'cursor-pointer table-highlighting' : 'bg-gray-600 cursor-not-allowed'"
               v-show="stationIsVisible(station.name)"
             >
-              <td class="w-1/3 text-left py-3 px-4"
-              :class="station.is_online ? '' : 'text-red-500'"
-              @click="station.is_online ? checkStation(station) : null">{{station.is_online ?
-               station.name 
-               : station.name + " (Station indisponible)"
-               }}</td>
+              <td
+                class="w-1/3 text-left py-3 px-4"
+                :class="station.is_online ? '' : 'text-red-500'"
+                @click="station.is_online ? checkStation(station) : null"
+              >
+                {{station.is_online ?
+                station.name
+                : station.name + " (Station indisponible)"
+                }}
+              </td>
               <td
                 class="w-1/3 text-left py-3 px-4"
                 @click="station.is_online ? checkStation(station) : null"
