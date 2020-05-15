@@ -23,7 +23,11 @@
               <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Favoris</th>
             </tr>
           </thead>
-          <tbody class="text-gray-700" v-for="(station) in data.data" :key="station.id">
+          <tbody
+            class="text-gray-700"
+            v-for="(station) in stationSearch == '' ? data.data : stationList"
+            :key="station.id"
+          >
             <tr
               v-show="station.is_online && stationIsVisible(station.name)"
               class="cursor-pointer table-highlighting"
@@ -136,9 +140,6 @@ export default {
     getIndexForArray(index, array) {
       return index >= 0 && index < array.length ? index : 0;
     },
-    searchStation() {
-      console.log(this.stationSearch);
-    },
     stationIsVisible(stationName) {
       let resultat = false;
       if (this.stationSearch == "") {
@@ -150,7 +151,6 @@ export default {
           resultat = true;
         }
       }
-      console.log(stationName);
       return resultat;
     }
   }
