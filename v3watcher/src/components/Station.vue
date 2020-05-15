@@ -30,17 +30,22 @@
             :key="station.id"
           >
             <tr
-              v-show="station.is_online && stationIsVisible(station.name)"
-              class="cursor-pointer table-highlighting"
+              :class="station.is_online ? 'cursor-pointer table-highlighting' : 'bg-gray-600 cursor-not-allowed'"
+              v-show="stationIsVisible(station.name)"
             >
-              <td class="w-1/3 text-left py-3 px-4" @click="checkStation(station)">{{station.name}}</td>
+              <td class="w-1/3 text-left py-3 px-4"
+              :class="station.is_online ? '' : 'text-red-500'"
+              @click="station.is_online ? checkStation(station) : null">{{station.is_online ?
+               station.name 
+               : station.name + " (Station indisponible)"
+               }}</td>
               <td
                 class="w-1/3 text-left py-3 px-4"
-                @click="checkStation(station)"
+                @click="station.is_online ? checkStation(station) : null"
               >{{station.bike_count}}</td>
               <td
                 class="w-1/3 text-left py-3 px-4"
-                @click="checkStation(station)"
+                @click="station.is_online ? checkStation(station) : null"
               >{{station.electric_bike_count}}</td>
               <td
                 class="w-1/3 text-left py-3 px-4"
